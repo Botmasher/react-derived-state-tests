@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DisplayOutput from '../DisplayOutput';
 
 class EraseStateOnPropsChange extends Component {
   state = {
@@ -14,9 +15,13 @@ class EraseStateOnPropsChange extends Component {
   }
 
   render () {
+    const { email } = this.state;
     return (
-      <div>Antipattern #2: Erase state when props change</div>
-      <input onChange={handleChange} value={this.state.email} />
+      <div>
+        <p>Antipattern #2: Erase state when props change</p>
+        <input onChange={this.handleChange} value={email} />
+        <DisplayOutput output={email} />
+      </div>
     );
   }
 }

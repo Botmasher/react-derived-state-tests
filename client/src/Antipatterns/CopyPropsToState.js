@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DisplayOutput from '../DisplayOutput';
 
 class CopyPropsToState extends Component {
   state = {
@@ -12,9 +13,13 @@ class CopyPropsToState extends Component {
   }
 
   render () {
+    const { email } = this.state;
     return (
-      <div>Antipattern #1: Copy props to state unconditionally</div>
-      <input onChange={e => this.handleChange(e)} value={this.state.email} />
+      <div>
+        <p>Antipattern #1: Copy props to state unconditionally</p>
+        <input onChange={e => this.handleChange(e)} value={email} />
+        <DisplayOutput output={email} />
+      </div>
     );
   }
 }
