@@ -2,21 +2,21 @@ import React, { Component } from 'react';
 
 class EraseStateOnPropsChange extends Component {
   state = {
-    props: this.props
+    email: this.props.email
   };
 
-  handleChange = e => this.setState({ props: e.target.value });
+  handleChange = e => this.setState({ email: e.target.value });
 
-  componentWillReceiveProps() {
-    if (nextProps !== this.props) {
-      this.setState({ props: nextProps });
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.email !== this.props.email) {
+      this.setState({ email: nextProps.email });
     }
   }
 
   render () {
     return (
       <div>Antipattern #2: Erase state when props change</div>
-      <input onChange={handleChange} value={this.state.props} />
+      <input onChange={handleChange} value={this.state.email} />
     );
   }
 }
